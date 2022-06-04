@@ -52,6 +52,7 @@
 ;; == Org Mode ==
 ;; Enable org mode
 (require 'org)
+
 ;; Make org mode work with files ending in .org
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 
@@ -59,6 +60,9 @@
 (setq org-todo-keywords
       '((sequence "TODO(t)" "|" "DONE(d)")
 	(sequence "NEXT(n)" "WAITING(w)" "SOMEDAY(s)" "|" "CANCELED(c)")))
+
+;; Org auto indent
+(setq org-startup-indented t)
 
 ;; Org refile targets
 (setq org-refile-targets '((org-agenda-files :maxlevel . 3)))
