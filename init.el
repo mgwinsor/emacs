@@ -42,9 +42,8 @@
 (use-package evil
   :ensure t
   :diminish undo-tree-mode
-  :config
-  :init
-  (evil-mode 1)
+  :init (setq evil-want-C-i-jump nil)
+  :config (evil-mode 1)
 
   ;; Resolve sentence jumping issue
   (setq sentence-end-double-space nil))
