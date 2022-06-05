@@ -4,18 +4,6 @@
 (setq user-full-name "Michael Winsor")
 
 
-;; Install use-package if necessary
-;;(require 'package)
-;;(setq package-archives (append package-archives
-;;			       '(("melpa" . "http://melpa.org/packages/"))))
-;;(package-initialize)
-
-;; Bootstrap 'use-package'
-;;(unless (package-installed-p 'usepackage)
-;;  (package-refresh-contents)
-;;  (package-install 'use-package))
-;;
-;;(use-package diminish :ensure t)
 
 ;; Enable use-package
 ;;(eval-when-compile
@@ -54,10 +42,14 @@
 (load-theme 'misterioso)
 
 
+;; == Diminish Mode ==
+(use-package diminish :straight t)
+
+
 ;; == Evil Mode ==
 (use-package evil
   :straight t
-  ;;:diminish undo-tree-mode
+  :diminish undo-tree-mode
   :init (setq evil-want-C-i-jump nil)
   :config (evil-mode 1)
 
@@ -68,6 +60,34 @@
 ;; == Helm ==
 (use-package helm
   :straight t)
+
+(setq helm-split-window-in-side-p t
+      helm-move-to-line-cycle-in-source t)
+
+(helm-mode 1)
+
+;; List buffers (emacs way)
+(global-set-key (kbd "C-x b") 'helm-buffers-list)
+;; List buffers (vim way)
+(define-key evil-ex-map "b" 'helm-buffers-list)
+
+;; Helm bookmarks
+(global-set-key (kbd "C-x r b") 'helm-bookmarks)
+
+;; Helm find files
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
+
+;; Helm M-x menu
+(global-set-key (kbd "M-x") 'helm-M-x)
+
+;; Helm search
+(global-set-key (kbd "C-s") 'helm-occur)
+
+;; Helm calculator
+(global-set-key (kbd "M-c") 'helm-calcul-expression)
+
+;; Helm kill ring (pick something to paste)
+(global-set-key (kbd "M-y") 'helm-show-kill-ring)
 
 
 ;; == Org Mode ==
