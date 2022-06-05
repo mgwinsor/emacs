@@ -1,6 +1,7 @@
 # directories
 /auto-save-list
 /elpa
+/straight
 
 # auto-save file buffers
 *.*~
