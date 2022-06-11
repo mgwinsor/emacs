@@ -1,15 +1,7 @@
 ;; -- mode: elisp --
 
-;; User info
+;; ==User Info==
 (setq user-full-name "Michael Winsor")
-
-
-
-;; Enable use-package
-;;(eval-when-compile
-;;  (require 'use-package))
-;;(require 'diminish)
-;;(require 'bind-key)
 
 
 ;; == Straight Package Manager ==
@@ -26,7 +18,7 @@
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
 
-
+(straight-use-package 'use-package)
 
 ;; == UI Tweaks ==
 ;; Disable splash screen
