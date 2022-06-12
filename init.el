@@ -20,6 +20,9 @@
 
 (straight-use-package 'use-package)
 
+;; Disable package.el in favor of straight.el
+(setq package-enable-at-startup nil)
+
 
 ;; == UI Tweaks ==
 ;; Disable splash screen
@@ -40,7 +43,12 @@
 (set-face-attribute 'default nil :height 110)
 
 ;; Set theme
-(load-theme 'misterioso)
+(straight-use-package
+ '(solarized-theme :type git
+		   :flavor melpa
+		   :host github
+		   :repo "bbatsov/solarized-emacs"))
+(load-theme 'solarized-light t)
 
 ;; Font size
 (global-set-key (kbd "C-+") 'text-scale-increase)
