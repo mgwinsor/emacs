@@ -20,9 +20,18 @@
 
 (straight-use-package 'use-package)
 
+
 ;; == UI Tweaks ==
 ;; Disable splash screen
 (setq inhibit-splash-screen t)
+
+;; Disable blinking cursor
+(bink-cursor-mode -1)
+
+;; Nice scrolling
+(setq scroll-margin 0
+      scroll-conservatively 100000
+      scoll-preserve-screen-position 1)
 
 ;; Enable transient mark mode
 (transient-mark-mode 1)
@@ -32,6 +41,30 @@
 
 ;; Set theme
 (load-theme 'misterioso)
+
+;; Font size
+(global-set-key (kbd "C-+") 'text-scale-increase)
+(global-set-key (kbd "C--") 'text-scale-decrease)
+
+;; Mode Line
+(line-number-mode t)
+(column-number-mode t)
+(size-indication-mode t)
+
+
+;; Window switching. (C-x o goes to the next window)
+(global-set-key (kbd "C-x O") (lambda ()
+                                (interactive)
+                                (other-window -1))) ;; back one
+
+;; Start a new eshell even if one is active.
+(global-set-key (kbd "C-x M") (lambda () (interactive) (eshell t)))
+
+;; Start a regular shell if you prefer that.
+(global-set-key (kbd "C-x M-m") 'shell)
+
+
+;; == Editor Tweaks ==
 
 
 ;; == Diminish Mode ==
@@ -120,8 +153,8 @@
 
 
 ;; ==Key mappings==
-(define-key global-map "\C-ca" 'org-agenda)
-(global-set-key (kbd "<f6>") 'org-capture)
+(define-key global-map "\C-c a" 'org-agenda)
+(global-set-key (kbd "C-c c") 'org-capture)
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
