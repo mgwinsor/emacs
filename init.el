@@ -39,9 +39,6 @@
 ;; Enable transient mark mode
 (transient-mark-mode 1)
 
-;; Set font size
-(set-face-attribute 'default nil :height 110)
-
 ;; Set theme
 (straight-use-package
  '(solarized-theme :type git
@@ -49,6 +46,14 @@
 		   :host github
 		   :repo "bbatsov/solarized-emacs"))
 (load-theme 'solarized-light t)
+
+;; Set font size
+(set-face-attribute 'default nil
+		    :family "Source Code Pro"
+		    :height 110
+		    :weight 'normal
+		    :width 'normal)
+
 
 ;; Font size
 (global-set-key (kbd "C-+") 'text-scale-increase)
@@ -160,6 +165,10 @@
 
 ;; ==Custom set variables==
 (custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(org-capture-templates
    '(("b" "Book" entry
       (file "read.org")
@@ -176,4 +185,12 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(org-habit-overdue-face ((((class color) (min-colors 89)) (:background "#dc322f" :foreground "#ff6849"))))
+ '(org-level-1 ((t (:inherit variable-pitch :foreground "#cb4b16" :height 1.3 :family "Source Code Pro"))))
+ '(org-level-2 ((t (:inherit variable-pitch :extend nil :foreground "#859900" :height 1.2 :family "Source Code Pro"))))
+ '(org-level-3 ((t (:inherit variable-pitch :extend nil :foreground "#268bd2" :height 1.15 :family "Source Code Pro"))))
+ '(org-level-4 ((t (:inherit variable-pitch :extend nil :foreground "#b58900" :height 1.1 :family "Source Code Pro"))))
+ '(org-level-5 ((t (:inherit variable-pitch :extend nil :foreground "#2aa198" :family "Source Code Pro"))))
+ '(org-level-6 ((t (:inherit variable-pitch :extend nil :foreground "#859900" :family "Source Code Pro"))))
+ '(org-level-7 ((t (:inherit variable-pitch :extend nil :foreground "#dc322f" :family "Source Code Pro"))))
+ '(org-level-8 ((t (:inherit variable-pitch :extend nil :foreground "#268bd2" :family "Source Code Pro")))))
