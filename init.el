@@ -26,7 +26,7 @@
 (setq inhibit-splash-screen t)
 
 ;; Disable blinking cursor
-(bink-cursor-mode -1)
+(blink-cursor-mode -1)
 
 ;; Nice scrolling
 (setq scroll-margin 0
@@ -65,6 +65,14 @@
 
 
 ;; == Editor Tweaks ==
+;; set new line at end of file
+(setq require-final-newline t)
+
+;; highlight the current line
+(global-hl-line-mode +1)
+
+;; Use flyspell-mode for spell checking
+;;(use-package flyspell)
 
 
 ;; == Diminish Mode ==
